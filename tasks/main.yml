@@ -1,2 +1,11 @@
 ---
-# tasks file for ansible-hstr
+- name: add hstr author's ppa repo
+  apt_repository: repo=ppa:ultradvorka/ppa state=present
+
+- name: install hh
+  apt: pkg=hh state=present update_cache=yes
+
+# each user who wants to use hh with ctrl-r needs to update their .bashrc file with:
+# $ hh --show-configuration >> ~/.bashrc
+# and reload bash configuration without new logon:
+# $ source ~/.bashrc

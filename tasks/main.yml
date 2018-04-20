@@ -1,6 +1,9 @@
 ---
 - name: add hstr author's ppa repo
-  apt_repository: repo=ppa:ultradvorka/ppa state=present
+  apt_repository: 
+    repo: 'ppa:ultradvorka/ppa'
+    codename: artful
+    state: present
 
 - name: install hh
   apt: pkg=hh state=present update_cache=yes

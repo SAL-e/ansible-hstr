@@ -5,7 +5,7 @@
     state: present
 
 - name: install hstr
-  apt: pkg=hh state=present update_cache=yes
+  apt: pkg=hstr state=present update_cache=yes
 
 # each user who wants to use hh with ctrl-r needs to update their .bashrc file with:
 # $ hstr --show-configuration >> ~/.bashrc

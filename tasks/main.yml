@@ -7,7 +7,15 @@
 - name: install hstr
   apt: pkg=hstr state=present update_cache=yes
 
+- name: copy hstr-activate script
+  copy:
+    src: files/hstr-activate
+    dest: /usr/local/bin/
+    owner: root
+    group: root
+    mode: 0755
+
 # each user who wants to use hh with ctrl-r needs to update their .bashrc file with:
-# $ hstr --show-configuration >> ~/.bashrc
+# $ hstr-activate
 # and reload bash configuration without new logon:
 # $ source ~/.bashrc

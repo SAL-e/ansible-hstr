@@ -1,0 +1,14 @@
+#!/bin/bash
+
+BASHRC=~/.bashrc
+CONF_BEGIN='# HSTR configuration'
+
+# backup .bashrc
+cp "$BASHRC" "$BASHRC.backup"
+# Remove any old config
+if grep -Fq "$CONF_BEGIN" "$BASHRC" ; then
+  sed "/$CONF_BEGIN/,/^ *$/d" "$BASHRC.backup" | sed '${/^$/d;}' - > "$BASHRC"
+fi
+# Add new configuration
+hstr --show-configuration  >> "$BASHRC"
+echo "Run: 'source ~/.bashrc' or close and re-open terminal."

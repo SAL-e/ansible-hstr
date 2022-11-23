@@ -3,6 +3,7 @@
   apt_repository:
     repo: 'ppa:ultradvorka/ppa'
     state: present
+  when: (ansible_distribution == 'Ubuntu') and (ansible_distribution_version in ['18.04', '20.04'])
 
 - name: install hstr
   apt: pkg=hstr state=present update_cache=yes
